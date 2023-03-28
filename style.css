@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    color: #FB2576;
+    background: #000000;
+    font-family: 'Rubik', sans-serif;
+}
+
+/* header */
+.title{
+    font-size: 50px;
+    margin-top: 10px;
+}
+.hd{
+    display: flex;
+    margin: 25px;
+}
+
+.img-person{
+    border-radius: 50%;
+    height: 180px;
+    width: 300px;
+}
+.description{
+    padding: 50px;
+    font-size: 17px;
+}
+/* end header */
+
+/* article */
+article{
+    margin-bottom: 20px;
+}
+.work-name{
+    display: flex;
+    flex-flow: row wrap;
+}
+.card{
+    width: 45%;
+    height: auto;
+    margin: 5px auto;
+}
+.work-name h2{
+    width: 100%;
+    margin: 20px 0px;
+}
+.img-card{
+    height: 250px;
+    width: 100%;
+    border-radius: 5%;
+}
+.card h3{
+    font-size: 25px;
+}
+/* end article */
+
+/* footer */
+    .ft{
+        display: flex;
+        flex-flow: row wrap;
+        margin: auto;
+    }
+    .ft a{
+        margin: auto;
+        padding: 15px 0px;
+    }
+
+    .ft a:hover{
+        background: #FB2576;
+        color: #000000;
+        padding: 5px;
+        border-radius: 5%;
+    }
+/* end footer */
