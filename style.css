@@ -16,7 +16,6 @@
     display: flex;
     margin: 25px;
 }
-
 .img-person{
     border-radius: 50%;
     height: 180px;
@@ -26,7 +25,29 @@
     padding: 50px;
     font-size: 17px;
 }
-/* end header */
+/* NAV IN HEADER */
+.nav-main{
+    margin: 10px auto;
+    border-bottom: #3F0071 1px solid;
+    display: flex;
+    flex-flow: row wrap;
+}
+.nav-main a{
+    margin: auto;
+    padding: 10px;
+}
+
+.nav-main a:hover{
+        transition: 0.7s;
+        background: #FB2576;
+        color: #000000;
+        padding: 9px;
+        border-radius: 5%;
+}
+
+
+/* END NAV */
+/* END header */
 
 /* article */
 article{
@@ -35,41 +56,106 @@ article{
 .work-name{
     display: flex;
     flex-flow: row wrap;
+    border-bottom: 1px solid #150050;
 }
 .card{
-    width: 45%;
+    width: 24%;
     height: auto;
     margin: 5px auto;
 }
 .work-name h2{
     width: 100%;
+    font-size: 50px;
     margin: 20px 0px;
+    padding-bottom: 5px;
 }
 .img-card{
     height: 250px;
     width: 100%;
-    border-radius: 5%;
+    border-radius: 5px;
 }
 .card h3{
-    font-size: 25px;
+    font-size: 40px;
+}
+.card p{
+    margin: 10px 0;
+    font-size: 18px;
+    color: #FD5A8A;
 }
 /* end article */
+
+/* Animation */
+
+/* End animation */
+
+/* Information */
+
+.img-info{
+    width: 50px;
+    height: 50px;
+}
+.info1{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: left;
+}
+.inf{
+    margin: auto 5px;
+}
+progress::-webkit-progress-value {
+    background-color: #FD5A8A ;
+    border-radius: 10px;
+  }
+progress{
+    padding: 5px;
+    color: blue;
+    border-radius: 10%;
+}
+/* End Information */
 
 /* footer */
     .ft{
         display: flex;
         flex-flow: row wrap;
         margin: auto;
+        border-top: 0.7px solid #3F0071;
     }
-    .ft a{
+    .ft p{
         margin: auto;
         padding: 15px 0px;
     }
-
-    .ft a:hover{
-        background: #FB2576;
-        color: #000000;
-        padding: 5px;
-        border-radius: 5%;
-    }
 /* end footer */
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1100px) {
+    
+    .card{
+        width: 45%;
+        height: auto;
+        margin: 5px auto;
+    }
+
+}
+@media only screen and (max-width: 500px) {
+    
+    .card{
+        width: 90%;
+        height: auto;
+        margin: 5px auto;
+    }
+
+    .hd{
+        display: flex;
+        margin: 25px;
+        flex-flow: row wrap;
+        width: 90%;
+    }
+
+    .img-person{
+        margin: auto;
+        width: 50%;
+    }
+}
+
+/* END RESPONSIVE */
