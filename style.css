@@ -10,7 +10,7 @@
 /* header */
 .title{
     font-size: 50px;
-    margin-top: 10px;
+    margin: 10px 5px;
 }
 .hd{
     display: flex;
@@ -22,7 +22,7 @@
     width: 300px;
 }
 .description{
-    padding: 50px;
+    padding: 40px;
     font-size: 17px;
 }
 /* NAV IN HEADER */
@@ -107,6 +107,7 @@ article{
 
 .inf{
     margin: auto;
+    font-size: 20px;
     padding: 10px 0px;
 }
 progress::-webkit-progress-value {
@@ -140,7 +141,7 @@ progress{
     .card{
         width: 45%;
         height: auto;
-        margin: 5px auto;
+        margin: 15px auto;
     }
 
 }
@@ -149,7 +150,7 @@ progress{
     .card{
         width: 90%;
         height: auto;
-        margin: 5px auto;
+        margin: 15px auto;
     }
 
     .hd{
