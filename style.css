@@ -2,8 +2,8 @@
     margin: 0;
     text-align: center;
     text-decoration: none;
-    color: #FB2576;
-    background: #000000;
+    color: #fb2376;
+    background: #0a0638;
     font-family: 'Rubik', sans-serif;
 }
 
@@ -33,7 +33,7 @@
     flex-flow: row wrap;
 }
 .nav-main a{
-    margin: auto;
+    margin:  5px auto;
     padding: 10px;
 }
 
@@ -41,7 +41,7 @@
         transition: 0.7s;
         background: #FB2576;
         color: #000000;
-        padding: 9px;
+        /* padding: 9px; */
         border-radius: 5%;
 }
 
@@ -70,9 +70,10 @@ article{
     padding-bottom: 5px;
 }
 .img-card{
-    height: 250px;
-    width: 100%;
+    height: 230px;
+    width: 85%;
     border-radius: 5px;
+    box-shadow: 0px 0px 5px #ffffff;
 }
 .card h3{
     font-size: 40px;
@@ -91,16 +92,22 @@ article{
 /* Information */
 
 .img-info{
-    width: 50px;
-    height: 50px;
+    width: 20px;
+    height: 20px;
+}
+.plusInfo{
+    margin: 5px auto;
 }
 .info1{
     display: flex;
     flex-flow: row wrap;
-    text-align: left;
+    /* text-align: center; */
+    margin: 10px auto;
 }
+
 .inf{
-    margin: auto 5px;
+    margin: auto;
+    padding: 10px 0px;
 }
 progress::-webkit-progress-value {
     background-color: #FD5A8A ;
