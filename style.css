@@ -1,11 +1,18 @@
 *{
-    margin: 0;
+    margin: 0 10px;
     text-align: center;
     text-decoration: none;
     color: #fb2376;
     background: #0a0638;
     font-family: 'Rubik', sans-serif;
+    transition: 1s;
 }
+
+  
+  *.cambio-color {
+    background-color: white;
+    transition: 2s;
+  }
 
 /* header */
 .title{
@@ -15,18 +22,21 @@
 .hd{
     display: flex;
     margin: 25px;
+    padding: 80px 0px;
 }
 .img-person{
     border-radius: 10%;
     height: 180px;
     width: 300px;
+    
 }
 .img-person:hover{
     box-shadow: 0px 0px 10px #454164;
 }
 .description{
     padding: 40px;
-    font-size: 17px;
+    font-size: 28px;
+    font-weight: 700;
 }
 /* NAV IN HEADER */
 .nav-main{
@@ -44,7 +54,6 @@
         transition: 0.7s;
         background: #FB2576;
         color: #000000;
-        /* padding: 9px; */
         border-radius: 5%;
 }
 
@@ -73,11 +82,15 @@ article{
     padding-bottom: 5px;
 }
 .img-card{
-    height: 260px;
+    height: auto;
     width: 85%;
     border-radius: 5px;
-    box-shadow: 0px 0px 5px #ffffff;
 }
+    .img-card:hover{
+        box-shadow: 0px 0px 5px #ffffff;
+        border-radius: 10px;
+        transition: 0.5s;
+    }
 .card h3{
     font-size: 40px;
 }
@@ -136,25 +149,35 @@ progress{
     }
 /* end footer */
 
+/* ANIMACION */
+  .animated {
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+  }
+  
+  .fadeIn {
+    opacity: 1;
+  }
+
+  /* FIN ANIMACION */
+
 /* RESPONSIVE */
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1200px) {
     
     .card{
         width: 45%;
         height: auto;
         margin: 15px auto;
     }
+    /* .description{
+        font-size: 15px;
+        font-weight: 900;
+        flex-wrap: balanced;
+    } */
 
 }
-@media only screen and (max-width: 500px) {
-    
-    .card{
-        width: 90%;
-        height: auto;
-        margin: 15px auto;
-    }
-
+@media only screen and (max-width: 750px){
     .hd{
         display: flex;
         margin: 25px;
@@ -164,8 +187,18 @@ progress{
 
     .img-person{
         margin: auto;
+        height: auto;
         width: 50%;
     }
+}
+@media only screen and (max-width: 550px) {
+    
+    .card{
+        width: 90%;
+        height: auto;
+        margin: 15px auto;
+    }
+
 }
 
 /* END RESPONSIVE */
