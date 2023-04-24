@@ -57,13 +57,15 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
       }
     
       const meta = document.querySelector('meta[name="theme-color"]');
-      const defaultColor = meta.getAttribute('content');
+      const defaultColor = meta.getAttribute('data-default-color');
+
 
       if (meta.getAttribute('content') === defaultColor) {
         meta.setAttribute('content', '#B0DAFF');
       } else {
         meta.setAttribute('content', defaultColor);
       }
+
     
 
 
