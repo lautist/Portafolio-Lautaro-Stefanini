@@ -47,24 +47,22 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
     headerColor.classList.toggle('btn-cc-a');
 
     const icon = headerColor.querySelector('.fa-solid');
+    const meta = document.querySelector('meta[name="theme-color"]');
+    const defaultColor = meta.getAttribute('data-default-color');
+
     
       if (icon.classList.contains('fa-toggle-on')) {
+        meta.setAttribute('content', '#B0DAFF');
         icon.classList.remove('fa-toggle-on');
         icon.classList.add('fa-toggle-off');
       } else {
+        meta.setAttribute('content', defaultColor);
         icon.classList.remove('fa-toggle-off');
         icon.classList.add('fa-toggle-on');
       }
     
-      const meta = document.querySelector('meta[name="theme-color"]');
-      const defaultColor = meta.getAttribute('data-default-color');
+ 
 
-
-      if (meta.getAttribute('content') === defaultColor) {
-        meta.setAttribute('content', '#B0DAFF');
-      } else {
-        meta.setAttribute('content', defaultColor);
-      }
 
     
 
