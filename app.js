@@ -33,7 +33,7 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
 
     const imgColor = document.querySelectorAll('#imgccA, #imgccB, #imgccC, #imgccD');
     const navColor = document.getElementById('nav-main-color');
-
+    const headerColor = document.getElementById('cambiar-color');
     navColor.classList.toggle('nav-main');
     navColor.classList.toggle('nav-main-a');
 
@@ -42,5 +42,18 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
       element.classList.toggle('img-card');
       element.classList.toggle('img-card-a');
     });
+    
+    headerColor.classList.toggle('btn-cc');
+    headerColor.classList.toggle('btn-cc-a');
+
+    const icon = headerColor.querySelector('.fa-solid');
+    
+      if (icon.classList.contains('fa-toggle-on')) {
+        icon.classList.remove('fa-toggle-on');
+        icon.classList.add('fa-toggle-off');
+      } else {
+        icon.classList.remove('fa-toggle-off');
+        icon.classList.add('fa-toggle-on');
+      }
     
   });

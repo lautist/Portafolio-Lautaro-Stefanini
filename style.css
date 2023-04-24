@@ -16,6 +16,22 @@
     transition: 1s;
     
 }
+.btn-cc{
+    margin: 10px auto 0px;
+    border: none;
+    border-radius: 100%;
+    color: #B0DAFF ;
+    font-size: 22px;
+    
+}
+.btn-cc-a{
+    margin: 10px auto 0px;
+    border: none;
+    border-radius: 100%;
+    color: #0a0638;
+    font-size: 22px; 
+    
+}
 
 
 /* header */
