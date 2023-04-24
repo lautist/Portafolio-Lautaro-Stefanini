@@ -22,5 +22,25 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
     document.querySelectorAll('*').forEach(function(element) {
         element.classList.toggle('cambio-color');
       });
-      
+      const progressBars = document.querySelectorAll('.label');
+
+  // Toggle entre las dos clases de color para cada barra de progreso
+  progressBars.forEach((progressBar) => {
+    progressBar.classList.toggle('progress-color');
+  });
+
+  document.querySelector('meta[name="theme-color"]').setAttribute('content', '#B0DAFF');
+
+    const imgColor = document.querySelectorAll('#imgccA, #imgccB, #imgccC, #imgccD');
+    const navColor = document.getElementById('nav-main-color');
+
+    navColor.classList.toggle('nav-main');
+    navColor.classList.toggle('nav-main-a');
+
+  
+    imgColor.forEach(function(element) {
+      element.classList.toggle('img-card');
+      element.classList.toggle('img-card-a');
+    });
+    
   });
