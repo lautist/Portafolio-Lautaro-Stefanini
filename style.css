@@ -39,7 +39,7 @@
     box-shadow: 0px 0px 10px #454164;
 }
 .description{
-    padding: 25px;
+    margin: 10px auto;
     font-size: 28px;
     font-weight: 500;
 }
@@ -245,7 +245,7 @@ progress{
         height: auto;
         margin: 15px auto;
     }
-
+    
 }
 
 /* END RESPONSIVE */
