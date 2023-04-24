@@ -56,4 +56,15 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
         icon.classList.add('fa-toggle-on');
       }
     
+      const meta = document.querySelector('meta[name="theme-color"]');
+      const defaultColor = meta.getAttribute('content');
+
+      if (meta.getAttribute('content') === defaultColor) {
+        meta.setAttribute('content', '#B0DAFF');
+      } else {
+        meta.setAttribute('content', defaultColor);
+      }
+    
+
+
   });
