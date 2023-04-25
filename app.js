@@ -17,7 +17,11 @@ function checkScroll() {
 
 // Detectar cuando el usuario desplaza hacia abajo en la página y llamar a la función checkScroll
 window.addEventListener('scroll', checkScroll);
+  
 
+
+// todos los elementos a continuacion es para realizar el cambio de color de la pagina
+//Seleccionamos el boton con la clase cambiar-color y le damos la funcion click
 document.getElementById("cambiar-color").addEventListener("click", function() {
     document.querySelectorAll('*').forEach(function(element) {
         element.classList.toggle('cambio-color');
@@ -28,6 +32,7 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
   progressBars.forEach((progressBar) => {
     progressBar.classList.toggle('progress-color');
   });
+
 
   document.querySelector('meta[name="theme-color"]').setAttribute('content', '#B0DAFF');
 
@@ -61,10 +66,5 @@ document.getElementById("cambiar-color").addEventListener("click", function() {
         icon.classList.add('fa-toggle-on');
       }
     
- 
-
-
-    
-
 
   });

@@ -1,5 +1,5 @@
 *{
-    margin: 0 2px;
+    margin: 0 6px;
     text-align: center;
     text-decoration: none;
     color: #fb2376;
@@ -22,6 +22,7 @@
     border-radius: 100%;
     color: #B0DAFF ;
     font-size: 22px;
+    cursor: pointer;
     
 }
 .btn-cc-a{
@@ -30,7 +31,7 @@
     border-radius: 100%;
     color: #0a0638;
     font-size: 22px; 
-    
+    cursor: pointer;
 }
 
 
@@ -69,7 +70,7 @@
 
 .nav-main a{
     margin:  5px auto;
-    padding: 10px;
+    padding: 5px;
 }
 
 .nav-main a:hover{
@@ -87,14 +88,20 @@
 }
 .nav-main-a a{
     margin:  5px auto;
-    padding: 10px;
+    padding: 5px;
 }
 .nav-main-a a:hover{
-        background: blue;
+        background: #4d4dff;
         color: #B0DAFF;
         border-radius: 5%;
 }
 
+.fa-brands{
+    background: none;
+}
+.fa-solid{
+    background: none;
+}
 
 /* END NAV */
 /* END header */
@@ -186,7 +193,7 @@ article{
   } */
 
   .label.progress-color {
-    --progress-color: #000000;
+    --progress-color: #4d4dff;
   }
   
   .label::-webkit-progress-value {
@@ -195,7 +202,7 @@ article{
   
 progress{
     padding: 5px;
-   
+
 }
 /* End Information */
 
@@ -209,6 +216,9 @@ progress{
     .ft p{
         margin: auto;
         padding: 15px 0px;
+    }
+    .a-footer{
+        text-decoration: none;
     }
 /* end footer */
 
