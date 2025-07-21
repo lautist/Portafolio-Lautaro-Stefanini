@@ -159,6 +159,17 @@ article{
     font-size: 18px;
 
 }
+.list-habilidades-title{
+    font-size: 25px;
+    margin: 10px 0;
+}
+.list-habilidades{
+    padding: 0;
+    text-align: center;
+    list-style-position: inside;
+    font-size: 20px;
+}
+
 
 /* end article */
 
@@ -239,6 +250,38 @@ progress{
 
   /* FIN ANIMACION */
 
+/* ICON FLEX  AND IMG*/
+
+.icon-logs {
+  padding: 20px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; 
+}
+
+
+.flex-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+.flex-items img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* END ICON FLEX */
 /* RESPONSIVE */
 
 @media only screen and (max-width: 1200px) {
@@ -268,6 +311,10 @@ progress{
         height: auto;
         width: 50%;
     }
+    /* .flex-items {
+    flex: 1 1 45%; 
+    max-width: 45%;
+  } */
 }
 @media only screen and (max-width: 550px) {
     
@@ -276,6 +323,7 @@ progress{
         height: auto;
         margin: 15px auto;
     }
+   
     
 }
 
