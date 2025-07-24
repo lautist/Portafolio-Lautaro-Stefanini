@@ -1,70 +1,66 @@
-// Seleccionar todos los elementos que se animarán
-let animatedElements = document.querySelectorAll('.animated');
+// app.js
 
-// Función que se activa cuando el usuario desplaza hacia abajo
-function checkScroll() {
-  // Obtener la posición actual del scroll
-  let scrollPosition = window.innerHeight + window.scrollY;
+document.addEventListener('DOMContentLoaded', () => {
 
-  // Iterar por cada elemento animado y agregar la clase 'fadeIn' si está dentro del viewport
-  for (let i = 0; i < animatedElements.length; i++) {
-    let element = animatedElements[i];
-    if (scrollPosition > element.offsetTop) {
-      element.classList.add('fadeIn');
+    // --- Animación de Scroll ---
+    const animatedElements = document.querySelectorAll('.animated');
+
+    const checkScroll = () => {
+        const scrollPosition = window.innerHeight + window.scrollY;
+        animatedElements.forEach(element => {
+            if (scrollPosition > element.offsetTop + 100) {
+                element.classList.add('fadeIn');
+            }
+        });
+    };
+
+    checkScroll();
+    window.addEventListener('scroll', checkScroll);
+
+    // --- Alternador de Tema de Color ---
+    const themeToggleButton = document.getElementById('cambiar-color');
+    const body = document.body;
+    
+    // Obtener la etiqueta meta del color del tema
+    const themeMetaTag = document.querySelector('meta[name="theme-color"]');
+    const defaultThemeColor = themeMetaTag.getAttribute('data-default-color');
+
+    // Función para establecer el tema
+    const setTheme = (isLightMode) => {
+        if (isLightMode) {
+            body.classList.add('light-mode'); // Añade la clase 'light-mode' al body
+            
+            // Cambia el icono del botón
+            themeToggleButton.querySelector('.fa-solid').classList.remove('fa-toggle-on');
+            themeToggleButton.querySelector('.fa-solid').classList.add('fa-toggle-off');
+            
+            // Actualiza el color de la meta etiqueta para el modo claro
+            themeMetaTag.setAttribute('content', '#B0DAFF');
+        } else {
+            body.classList.remove('light-mode'); // Elimina la clase 'light-mode' del body
+            
+            // Cambia el icono del botón
+            themeToggleButton.querySelector('.fa-solid').classList.remove('fa-toggle-off');
+            themeToggleButton.querySelector('.fa-solid').classList.add('fa-toggle-on');
+            
+            // Restaura el color por defecto de la meta etiqueta
+            themeMetaTag.setAttribute('content', defaultThemeColor);
+        }
+        // Nota: Las clases nav-main-a e img-card-a ya no son necesarias para aplicar en JS.
+        // Los estilos se aplican directamente a .nav-main y .img-card cuando body.light-mode está activo.
+    };
+
+    // Comprobar la preferencia de tema guardada en localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        setTheme(true);
+    } else {
+        setTheme(false);
     }
-  }
-}
 
-// Detectar cuando el usuario desplaza hacia abajo en la página y llamar a la función checkScroll
-window.addEventListener('scroll', checkScroll);
-  
-
-
-// todos los elementos a continuacion es para realizar el cambio de color de la pagina
-//Seleccionamos el boton con la clase cambiar-color y le damos la funcion click
-document.getElementById("cambiar-color").addEventListener("click", function() {
-    document.querySelectorAll('*').forEach(function(element) {
-        element.classList.toggle('cambio-color');
-      });
-      const progressBars = document.querySelectorAll('.label');
-
-  // Toggle entre las dos clases de color para cada barra de progreso
-  progressBars.forEach((progressBar) => {
-    progressBar.classList.toggle('progress-color');
-  });
-
-
-  document.querySelector('meta[name="theme-color"]').setAttribute('content', '#B0DAFF');
-
-    const imgColor = document.querySelectorAll('#imgccA, #imgccB, #imgccC, #imgccD');
-    const navColor = document.getElementById('nav-main-color');
-    const headerColor = document.getElementById('cambiar-color');
-    navColor.classList.toggle('nav-main');
-    navColor.classList.toggle('nav-main-a');
-
-  
-    imgColor.forEach(function(element) {
-      element.classList.toggle('img-card');
-      element.classList.toggle('img-card-a');
+    themeToggleButton.addEventListener('click', () => {
+        const isLightMode = body.classList.contains('light-mode');
+        setTheme(!isLightMode);
+        localStorage.setItem('theme', !isLightMode ? 'light' : 'dark');
     });
-    
-    headerColor.classList.toggle('btn-cc');
-    headerColor.classList.toggle('btn-cc-a');
-
-    const icon = headerColor.querySelector('.fa-solid');
-    const meta = document.querySelector('meta[name="theme-color"]');
-    const defaultColor = meta.getAttribute('data-default-color');
-
-    
-      if (icon.classList.contains('fa-toggle-on')) {
-        meta.setAttribute('content', '#B0DAFF');
-        icon.classList.remove('fa-toggle-on');
-        icon.classList.add('fa-toggle-off');
-      } else {
-        meta.setAttribute('content', defaultColor);
-        icon.classList.remove('fa-toggle-off');
-        icon.classList.add('fa-toggle-on');
-      }
-    
-
-  });
+});

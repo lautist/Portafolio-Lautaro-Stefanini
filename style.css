@@ -1,342 +1,345 @@
-*{
-    margin: 0 6px;
-    text-align: center;
+/* style.css */
+
+:root {
+    /* Variables para el tema oscuro (por defecto) */
+    --primary-bg: #0a0638; /* Fondo principal */
+    --secondary-bg: #B0DAFF; /* Fondo secundario para el modo claro */
+    --primary-text: #fb2376; /* Color de texto principal */
+    --secondary-text: #32393C; /* Color de texto secundario para el modo claro */
+    --accent-color-1: #3F0071; /* Color de acento 1 */
+    --accent-color-2: #FB2576; /* Color de acento 2 */
+    --shadow-dark: #454164; /* Sombra para elementos en modo oscuro */
+    --shadow-light: #ffffff; /* Sombra para elementos en modo oscuro (alternativa) */
+    --progress-bar-color-dark: #FD5A8A; /* Color de barra de progreso en modo oscuro */
+    --progress-bar-color-light: #4d4dff; /* Color de barra de progreso en modo claro */
+}
+
+/* Base y Reset universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño del elemento */
     text-decoration: none;
-    color: #fb2376;
-    background: #0a0638;
-    font-family: 'Rubik', sans-serif;
-    transition: 0.7s;
+    color: var(--primary-text); /* Usa la variable de color principal */
+    background: var(--primary-bg); /* Usa la variable de color de fondo principal */
+    font-family: 'Rubik', sans-serif; /* Fuente consistente */
+    transition: all 0.7s ease-in-out; /* Transiciones suaves para todas las propiedades */
 }
-   
 
-  
-  *.cambio-color {
-    background-color: #B0DAFF;
-    color: #32393C;
-    transition: 1s;
-    
+/* Estilos para el cuerpo en modo claro */
+body.light-mode {
+    background: var(--secondary-bg);
+    color: var(--secondary-text);
 }
-.btn-cc{
-    margin: 10px auto 0px;
-    border: none;
-    border-radius: 100%;
-    color: #B0DAFF ;
-    font-size: 22px;
-    cursor: pointer;
-    
+
+body.light-mode * {
+    background: var(--secondary-bg); /* Aplica el fondo claro a todos los elementos */
+    color: var(--secondary-text); /* Aplica el texto claro a todos los elementos */
 }
-.btn-cc-a{
-    margin: 10px auto 0px;
-    border: none;
-    border-radius: 100%;
-    color: #0a0638;
-    font-size: 22px; 
-    cursor: pointer;
+
+/* Excepciones para iconos en modo claro (mantener fondo transparente) */
+body.light-mode .fa-brands,
+body.light-mode .fa-solid {
+    background: none;
 }
-.img-mode{
-     width: 10%;
-    height: 10%;
-    object-fit: contain;
+
+/* Botón de cambio de tema en modo claro */
+body.light-mode .btn-cc-a { /* Este es el botón en modo claro */
+    color: var(--primary-bg); /* Color oscuro para el texto del botón en modo claro */
 }
 
 
-/* header */
-.title{
-    font-size: 50px;
-    margin: 10px 5px;
+/* --- Encabezado (Header) --- */
+.title {
+    font-size: clamp(35px, 8vw, 60px); /* Tamaño de fuente responsivo */
+    margin: 20px 0;
+    text-align: center;
 }
-.hd{
+
+.hd {
     display: flex;
-    margin: 10px 0px;
-    padding: 10px 0px;
+    flex-direction: column; /* Apila elementos verticalmente en pantallas pequeñas */
+    align-items: center; /* Centra horizontalmente */
+    gap: 20px; /* Espacio entre la imagen y la descripción */
+    padding: 20px;
+    margin: 10px auto; /* Centra el contenedor completo */
+    max-width: 1200px; /* Ancho máximo para el encabezado */
 }
-.img-person{
+
+@media (min-width: 750px) {
+    .hd {
+        flex-direction: row; /* Elementos lado a lado en pantallas grandes */
+        justify-content: center;
+        text-align: left;
+    }
+
+    .hd > div { /* Contenedor de título, descripción y educación */
+        max-width: 60%; /* Ajusta el ancho para el texto */
+    }
+}
+
+.img-person {
     border-radius: 10%;
-    height: 180px;
-    width: 300px;
-    margin: auto;
-    
+    width: 250px; /* Ancho fijo */
+    height: 250px; /* Alto fijo */
+    object-fit: cover; /* Recorta la imagen para que quepa sin distorsión */
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease;
 }
-.img-person:hover{
-    box-shadow: 0px 0px 10px #454164;
+
+.img-person:hover {
+    box-shadow: 0px 0px 15px var(--shadow-dark);
 }
-.description{
-    margin: 10px auto;
-    font-size: 28px;
+
+.description {
+    margin: 20px auto;
+    font-size: clamp(16px, 3vw, 22px);
     font-weight: 500;
-    padding: 10px;
-    border-top: 1px solid rgb(251, 35, 118);
-    border-bottom: 1px solid rgb(251, 35, 118);
+    padding: 15px;
+    border-top: 1px solid var(--primary-text);
+    border-bottom: 1px solid var(--primary-text);
 }
-/* NAV IN HEADER */
-.nav-main{
-    margin: 10px auto;
-    border-bottom: #3F0071 1px solid;
+
+/* --- Navegación (Nav) --- */
+.nav-main { /* Esta clase siempre debe tener las propiedades de flexbox */
     display: flex;
-    flex-flow: row wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px auto;
+    border-bottom: 1px solid var(--accent-color-1);
+    padding-bottom: 10px;
 }
 
-.nav-main a{
-    margin:  5px auto;
-    padding: 5px;
-}
-
-.nav-main a:hover{
-        background: #FB2576;
-        color: #000000;
-        border-radius: 5%;
-}
-
-
-.nav-main-a{
-    margin: 10px auto;
-    border-bottom: #3F0071 1px solid;
-    display: flex;
-    flex-flow: row wrap;
-}
-.nav-main-a a{
-    margin:  5px auto;
-    padding: 5px;
-}
-.nav-main-a a:hover{
-        background: #4d4dff;
-        color: #B0DAFF;
-        border-radius: 5%;
-}
-
-.fa-brands{
-    background: none;
-}
-.fa-solid{
-    background: none;
-}
-
-/* END NAV */
-/* END header */
-
-/* article */
-article{
-    margin-bottom: 20px;
-}
-.work-name{
-    display: flex;
-    flex-flow: row wrap;
-    border-bottom: 1px solid #150050;
-}
-.card{
-    width: 24%;
-    height: auto;
-    margin: 5px auto;
-}
-
-
-.work-name h2{
-    width: 100%;
-    font-size: 50px;
-    margin: 20px 0px;
-    padding-bottom: 5px;
-}
-.img-card{
-    height: auto;
-    width: 85%;
+.nav-main a {
+    margin: 5px 15px;
+    padding: 8px 15px;
     border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
 }
-    .img-card:hover{
-        box-shadow: 0px 0px 5px #ffffff;
-        border-radius: 10px;
-        transition: 0.5s;
+
+.nav-main a:hover {
+    background: var(--accent-color-2);
+    color: #000000; /* Texto negro sobre el hover para contraste */
+}
+
+/* Estilos de navegación ESPECÍFICOS para modo claro.
+   Estos se aplican cuando el body tiene la clase 'light-mode' Y el nav tiene 'nav-main'.
+   No reemplazamos 'nav-main', solo modificamos sus hijos y bordes en light-mode. */
+body.light-mode .nav-main {
+    border-bottom: 1px solid var(--accent-color-2); /* Borde diferente en modo claro */
+}
+
+
+
+body.light-mode .nav-main a:hover {
+    background: var(--progress-bar-color-light); /* Fondo de hover diferente en modo claro */
+    color: var(--primary-text); /* Asegura el contraste */
+}
+
+
+/* --- Sección de Proyectos (Article) --- */
+.work-name {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espacio entre las tarjetas */
+    padding: 20px 0;
+    border-bottom: 1px solid var(--accent-color-1);
+    max-width: 1200px;
+    margin: 0 auto 50px auto;
+}
+
+.work-name h2 {
+    width: 100%;
+    text-align: center;
+    font-size: clamp(40px, 8vw, 55px);
+    margin-bottom: 30px;
+}
+
+.card {
+    width: 90%; /* Por defecto para pantallas pequeñas */
+    max-width: 350px; /* Controla el ancho máximo para pantallas grandes */
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+@media (min-width: 550px) {
+    .card {
+        width: 45%;
     }
+}
 
-
-    .img-card-a{
-        height: auto;
-        width: 85%;
-        border-radius: 5px;
+@media (min-width: 1000px) {
+    .card {
+        width: 30%; /* Para 3 columnas */
     }
-        .img-card-a:hover{
-            box-shadow: 0px 0px 5px #000000;
-            border-radius: 10px;
-            transition: 0.5s;
-        }
-    
-.card h3{
-    font-size: 40px;
 }
-.card p{
-    margin: 10px 20px;
-    font-size: 18px;
 
+@media (min-width: 1200px) {
+    .card {
+        width: 24%; /* Ancho original para pantallas muy grandes */
+    }
 }
-.list-habilidades-title{
-    font-size: 25px;
-    margin: 10px 0;
+
+.img-card { /* Clase base para todas las imágenes de tarjetas */
+    width: 90%;
+    height: 200px; /* Altura fija para consistencia de imágenes */
+    object-fit: cover; /* Recorta las imágenes para que quepan */
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease, border-radius 0.3s ease;
 }
-.list-habilidades{
+
+.img-card:hover {
+    box-shadow: 0px 0px 10px var(--shadow-light);
+    border-radius: 10px;
+}
+
+/* Estilos de imagen de tarjeta específicos para modo claro.
+   Estos se aplican cuando el body tiene la clase 'light-mode' Y la imagen tiene 'img-card'. */
+body.light-mode .img-card:hover { /* Hover específico para modo claro */
+    box-shadow: 0px 0px 10px #000000; /* Sombra más oscura para contraste */
+    border-radius: 10px;
+}
+
+.card h3 {
+    font-size: clamp(28px, 5vw, 35px);
+    margin-top: 15px;
+}
+
+.card p {
+    margin: 10px 15px 20px;
+    font-size: clamp(15px, 2.5vw, 18px);
+    line-height: 1.5; /* Mejora la legibilidad */
+}
+
+/* --- Sección de Habilidades (Skills) --- */
+.list-habilidades-title {
+    font-size: clamp(22px, 4vw, 30px);
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.list-habilidades {
+    list-style: none; /* Elimina los puntos de la lista */
     padding: 0;
     text-align: center;
-    list-style-position: inside;
-    font-size: 20px;
-}
-.list-habilidades li{
-    margin: 5px 0;
-    
+    margin-bottom: 40px;
 }
 
-
-/* end article */
-
-/* Animation */
-
-/* End animation */
-
-/* Information */
-
-.img-info{
-    width: 20px;
-    height: 20px;
-}
-.plusInfo{
-    margin: 5px auto;
-}
-.info1{
-    display: flex;
-    flex-flow: row wrap;
-    /* text-align: center; */
-    margin: 10px auto;
+.list-habilidades li {
+    margin: 8px 0;
+    font-size: clamp(16px, 3vw, 20px);
 }
 
-.inf{
-    margin: auto;
-    font-size: 20px;
-    padding: 10px 0px;
+.inf-hb { /* Título de la sección de habilidades de iconos */
+    font-size: clamp(30px, 6vw, 45px);
+    margin-bottom: 25px;
+    text-align: center;
 }
-/* progress::-webkit-progress-value {
-    background-color: #FD5A8A ;
-    
-  } */
-
-  .label.progress-color {
-    --progress-color: #4d4dff;
-  }
-  
-  .label::-webkit-progress-value {
-    background-color: var(--progress-color, #FD5A8A);
-  }
-  
-progress{
-    padding: 5px;
-
-}
-
-.inf-hb{
-    font-size: 35px;
-    font-weight: 500;
-}
-/* End Information */
-
-/* footer */
-    .ft{
-        display: flex;
-        flex-flow: row wrap;
-        margin: auto;
-        border-top: 0.7px solid #3F0071;
-    }
-    .ft p{
-        margin: auto;
-        padding: 15px 0px;
-    }
-    .a-footer{
-        text-decoration: none;
-    }
-/* end footer */
-
-/* ANIMACION */
-  .animated {
-    opacity: 0;
-    transition: opacity 0.95s ease-in-out;
-  }
-  
-  .fadeIn {
-    opacity: 1;
-  }
-
-  /* FIN ANIMACION */
-
-/* ICON FLEX  AND IMG*/
 
 .icon-logs {
-  padding: 20px;
+    padding: 30px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px; /* Espacio entre los iconos */
 }
-
 
 .flex-items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  height: 80px;
-  padding: 10px;
-  box-sizing: border-box;
+    width: 90px;
+    height: 90px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil para los iconos */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.light-mode .flex-items {
+    background-color: rgba(0, 0, 0, 0.05); /* Fondo sutil más oscuro para iconos en modo claro */
+}
+
+
+.flex-items:hover {
+    transform: translateY(-5px); /* Pequeño efecto de elevación */
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
 
 .flex-items img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-/* END ICON FLEX */
-/* RESPONSIVE */
-
-@media only screen and (max-width: 1200px) {
-    
-    .card{
-        width: 45%;
-        height: auto;
-        margin: 15px auto;
-    }
-    /* .description{
-        font-size: 15px;
-        font-weight: 900;
-        flex-wrap: balanced;
-    } */
-
-}
-@media only screen and (max-width: 750px){
-    .hd{
-        display: flex;
-        margin: 25px;
-        flex-flow: row wrap;
-        width: 90%;
-    }
-
-    .img-person{
-        margin: auto;
-        height: auto;
-        width: 50%;
-    }
-    /* .flex-items {
-    flex: 1 1 45%; 
-    max-width: 45%;
-  } */
-}
-@media only screen and (max-width: 550px) {
-    
-    .card{
-        width: 90%;
-        height: auto;
-        margin: 15px auto;
-    }
-   
-    
+/* --- Pie de Página (Footer) --- */
+.ft {
+    display: flex; /* Habilitar Flexbox */
+    flex-wrap: wrap; /* Permitir que los elementos salten de línea en pantallas pequeñas */
+    justify-content: center; /* Centrar horizontalmente los elementos */
+    align-items: center; /* Centrar verticalmente los elementos */
+    padding: 20px 0;
+    margin-top: 50px; /* Espacio desde el contenido superior */
+    border-top: 0.7px solid var(--accent-color-1);
+    /* Añadimos un pequeño gap para separar el texto del botón */
+    gap: 15px; /* Espacio entre los elementos flex */
 }
 
-/* END RESPONSIVE */
+body.light-mode .ft {
+    border-top: 0.7px solid var(--accent-color-2); /* Borde en modo claro */
+}
+
+.ft p {
+    margin: 0; /* Elimina los márgenes del párrafo dentro de .ft para que 'gap' controle el espacio */
+    font-size: 16px;
+}
+
+.a-footer {
+    color: var(--primary-text); /* Asegura que el enlace mantenga el color del texto principal */
+}
+
+body.light-mode .a-footer {
+    color: var(--secondary-text); /* Color del enlace en modo claro */
+}
+
+/* --- Botón de cambio de tema --- */
+.btn-cc { /* Clase por defecto para el botón (modo oscuro) */
+    margin: 0; /* Elimina los márgenes del botón para que 'gap' controle el espacio */
+    border: none;
+    background: none; /* Fondo transparente inicialmente */
+    color: var(--primary-text); /* Usa la variable para el color del icono */
+    font-size: 28px;
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+    /* Asegura que el texto y el icono estén en línea y alineados */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre el texto "Tema:" y el icono */
+}
+
+/* Estilo específico del botón en modo claro (cuando el body tiene light-mode) */
+body.light-mode .btn-cc { /* Esta es la clase que se mantiene */
+    color: var(--secondary-text); /* Texto oscuro sobre fondo claro */
+}
+
+/* --- Animación de Scroll --- */
+.animated {
+    opacity: 0;
+    transform: translateY(20px); /* Empieza ligeramente por debajo */
+    transition: opacity 0.95s ease-out, transform 0.95s ease-out;
+}
+
+.fadeIn {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a la posición original */
+}
