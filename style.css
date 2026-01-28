@@ -1,345 +1,446 @@
-/* style.css */
-
 :root {
-    /* Variables para el tema oscuro (por defecto) */
-    --primary-bg: #0a0638; /* Fondo principal */
-    --secondary-bg: #B0DAFF; /* Fondo secundario para el modo claro */
-    --primary-text: #fb2376; /* Color de texto principal */
-    --secondary-text: #32393C; /* Color de texto secundario para el modo claro */
-    --accent-color-1: #3F0071; /* Color de acento 1 */
-    --accent-color-2: #FB2576; /* Color de acento 2 */
-    --shadow-dark: #454164; /* Sombra para elementos en modo oscuro */
-    --shadow-light: #ffffff; /* Sombra para elementos en modo oscuro (alternativa) */
-    --progress-bar-color-dark: #FD5A8A; /* Color de barra de progreso en modo oscuro */
-    --progress-bar-color-light: #4d4dff; /* Color de barra de progreso en modo claro */
+    /* Technical / Cyber Defense Palette */
+    --bg-main: #0a0a12; /* Deep dark background */
+    --bg-secondary: #14141f; /* Slightly lighter card background */
+    --bg-tertiary: #1c1c2b; /* Highlight background */
+
+    --accent-primary: #00e5ff; /* Electric Cyan - Core accent */
+    --accent-secondary: #3d5afe; /* Indigo Blue - Secondary accent */
+
+    --text-primary: #ffffff; /* Main headings */
+    --text-secondary: #b0b0c0; /* Body text, descriptions */
+    --text-tertiary: #7a7a8c; /* Muted text, tech specs */
+
+    --font-main: 'Rubik', sans-serif;
+    --transition-fast: 180ms;
+
+    /* Layout tuning */
+    --container-max-width: 1200px;
+    --side-padding: clamp(1rem, 4vw, 2rem);
 }
 
-/* Base y Reset universal */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Asegura que padding y border no aumenten el tamaño del elemento */
-    text-decoration: none;
-    color: var(--primary-text); /* Usa la variable de color principal */
-    background: var(--primary-bg); /* Usa la variable de color de fondo principal */
-    font-family: 'Rubik', sans-serif; /* Fuente consistente */
-    transition: all 0.7s ease-in-out; /* Transiciones suaves para todas las propiedades */
 }
 
-/* Estilos para el cuerpo en modo claro */
-body.light-mode {
-    background: var(--secondary-bg);
-    color: var(--secondary-text);
+.skip-link {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 1rem;
+    top: 1rem;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-radius: 6px;
+    z-index: 2000;
 }
 
-body.light-mode * {
-    background: var(--secondary-bg); /* Aplica el fondo claro a todos los elementos */
-    color: var(--secondary-text); /* Aplica el texto claro a todos los elementos */
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Excepciones para iconos en modo claro (mantener fondo transparente) */
-body.light-mode .fa-brands,
-body.light-mode .fa-solid {
-    background: none;
+a { color: inherit; }
+a:focus, button:focus { outline: none; }
+a:focus-visible, button:focus-visible {
+    outline: 3px solid rgba(0,229,255,0.18);
+    outline-offset: 3px;
+    border-radius: 6px;
 }
 
-/* Botón de cambio de tema en modo claro */
-body.light-mode .btn-cc-a { /* Este es el botón en modo claro */
-    color: var(--primary-bg); /* Color oscuro para el texto del botón en modo claro */
+/* --- Layout centering for main page blocks --- */
+.nav-main,
+.hero-content,
+main,
+.flagship-container,
+.work-name {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
 }
 
-
-/* --- Encabezado (Header) --- */
-.title {
-    font-size: clamp(35px, 8vw, 60px); /* Tamaño de fuente responsivo */
-    margin: 20px 0;
-    text-align: center;
+/* --- Navigation --- */
+#main-nav {
+    background-color: rgba(10, 10, 18, 0.95); /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    padding: 1rem 0; /* horizontal padding is on .nav-main now */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.hd {
+.nav-main {
     display: flex;
-    flex-direction: column; /* Apila elementos verticalmente en pantallas pequeñas */
-    align-items: center; /* Centra horizontalmente */
-    gap: 20px; /* Espacio entre la imagen y la descripción */
-    padding: 20px;
-    margin: 10px auto; /* Centra el contenedor completo */
-    max-width: 1200px; /* Ancho máximo para el encabezado */
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    /* max-width / margin / padding applied by the shared selector above */
 }
 
-@media (min-width: 750px) {
-    .hd {
-        flex-direction: row; /* Elementos lado a lado en pantallas grandes */
-        justify-content: center;
-        text-align: left;
-    }
-
-    .hd > div { /* Contenedor de título, descripción y educación */
-        max-width: 60%; /* Ajusta el ancho para el texto */
-    }
+.brand {
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
 }
 
-.img-person {
-    border-radius: 10%;
-    width: 250px; /* Ancho fijo */
-    height: 250px; /* Alto fijo */
-    object-fit: cover; /* Recorta la imagen para que quepa sin distorsión */
-    margin: 20px auto;
-    transition: box-shadow 0.3s ease;
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-.img-person:hover {
-    box-shadow: 0px 0px 15px var(--shadow-dark);
+.nav-right a, .nav-right .btn-cta {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--transition-fast) ease;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.nav-right a:hover, .nav-right .btn-cta:hover {
+    color: var(--accent-primary);
+}
+
+.btn-cta {
+    background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+    color: #06111a;
+    padding: 0.45rem 0.8rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: none;
+}
+
+.btn-icon {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    display: inline-flex;
+    padding: 0.35rem;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+/* --- Hero Section --- */
+.hd {
+    text-align: left;
+    padding: 6rem 0 4rem; /* horizontal padding lives on .hero-content */
+    background: linear-gradient(135deg, var(--bg-main) 0%, rgb(13, 13, 31) 100%);
+    border-bottom: 1px solid var(--bg-tertiary);
+    /* ensure hero area centers its inner container */
+    display: block;
+}
+
+.hero-content {
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--side-padding);
+    padding-right: var(--side-padding);
+    /* Keep text-left by default (matches your preference). If you want center text here, set text-align:center */
+}
+
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--text-primary) 20%, var(--accent-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 0.6s ease;
+    background-size: 200% 100%;
+}
+
+.title:hover {
+    background-position: 100% 0;
 }
 
 .description {
-    margin: 20px auto;
-    font-size: clamp(16px, 3vw, 22px);
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin-bottom: 1.6rem;
+    color: var(--text-secondary);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, var(--accent-primary), #61f3ff);
+    color: #06111a;
+    padding: 0.7rem 1.1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--text-secondary);
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    text-decoration: none;
+}
+
+/* --- Section Titles --- */
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-primary);
+}
+
+/* --- Flagship & Cards --- */
+.flagship-container {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    /* padding is handled inside .flagship-details; centering ensured by shared selector */
+}
+
+.flagship-details {
+    padding: 3rem;
+    max-width: calc(var(--container-max-width) - (var(--side-padding) * 2));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.flagship-details h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-primary);
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
     font-weight: 500;
-    padding: 15px;
-    border-top: 1px solid var(--primary-text);
-    border-bottom: 1px solid var(--primary-text);
 }
 
-/* --- Navegación (Nav) --- */
-.nav-main { /* Esta clase siempre debe tener las propiedades de flexbox */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 20px auto;
-    border-bottom: 1px solid var(--accent-color-1);
-    padding-bottom: 10px;
+.tech-grid-expanded .tech-tag {
+    display: inline-flex;
+    gap: .5rem;
+    padding: .35rem .6rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    margin-right: .5rem;
+    margin-bottom: .5rem;
 }
 
-.nav-main a {
-    margin: 5px 15px;
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.nav-main a:hover {
-    background: var(--accent-color-2);
-    color: #000000; /* Texto negro sobre el hover para contraste */
-}
-
-/* Estilos de navegación ESPECÍFICOS para modo claro.
-   Estos se aplican cuando el body tiene la clase 'light-mode' Y el nav tiene 'nav-main'.
-   No reemplazamos 'nav-main', solo modificamos sus hijos y bordes en light-mode. */
-body.light-mode .nav-main {
-    border-bottom: 1px solid var(--accent-color-2); /* Borde diferente en modo claro */
-}
-
-
-
-body.light-mode .nav-main a:hover {
-    background: var(--progress-bar-color-light); /* Fondo de hover diferente en modo claro */
-    color: var(--primary-text); /* Asegura el contraste */
-}
-
-
-/* --- Sección de Proyectos (Article) --- */
+/* --- Cards --- */
 .work-name {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Espacio entre las tarjetas */
-    padding: 20px 0;
-    border-bottom: 1px solid var(--accent-color-1);
-    max-width: 1200px;
-    margin: 0 auto 50px auto;
-}
-
-.work-name h2 {
-    width: 100%;
-    text-align: center;
-    font-size: clamp(40px, 8vw, 55px);
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    /* centered by the shared selector above */
 }
 
 .card {
-    width: 90%; /* Por defecto para pantallas pequeñas */
-    max-width: 350px; /* Controla el ancho máximo para pantallas grandes */
-    margin: 10px auto;
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease, border-color var(--transition-fast) ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent-secondary);
+    box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.6);
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
-@media (min-width: 550px) {
-    .card {
-        width: 45%;
-    }
-}
-
-@media (min-width: 1000px) {
-    .card {
-        width: 30%; /* Para 3 columnas */
-    }
-}
-
-@media (min-width: 1200px) {
-    .card {
-        width: 24%; /* Ancho original para pantallas muy grandes */
-    }
-}
-
-.img-card { /* Clase base para todas las imágenes de tarjetas */
-    width: 90%;
-    height: 200px; /* Altura fija para consistencia de imágenes */
-    object-fit: cover; /* Recorta las imágenes para que quepan */
-    border-radius: 5px;
-    transition: box-shadow 0.3s ease, border-radius 0.3s ease;
-}
-
-.img-card:hover {
-    box-shadow: 0px 0px 10px var(--shadow-light);
-    border-radius: 10px;
-}
-
-/* Estilos de imagen de tarjeta específicos para modo claro.
-   Estos se aplican cuando el body tiene la clase 'light-mode' Y la imagen tiene 'img-card'. */
-body.light-mode .img-card:hover { /* Hover específico para modo claro */
-    box-shadow: 0px 0px 10px #000000; /* Sombra más oscura para contraste */
-    border-radius: 10px;
-}
-
-.card h3 {
-    font-size: clamp(28px, 5vw, 35px);
-    margin-top: 15px;
-}
-
-.card p {
-    margin: 10px 15px 20px;
-    font-size: clamp(15px, 2.5vw, 18px);
-    line-height: 1.5; /* Mejora la legibilidad */
-}
-
-/* --- Sección de Habilidades (Skills) --- */
-.list-habilidades-title {
-    font-size: clamp(22px, 4vw, 30px);
-    margin: 20px 0 10px;
-    text-align: center;
-}
-
-.list-habilidades {
-    list-style: none; /* Elimina los puntos de la lista */
-    padding: 0;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.list-habilidades li {
-    margin: 8px 0;
-    font-size: clamp(16px, 3vw, 20px);
-}
-
-.inf-hb { /* Título de la sección de habilidades de iconos */
-    font-size: clamp(30px, 6vw, 45px);
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.icon-logs {
-    padding: 30px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px; /* Espacio entre los iconos */
-}
-
-.flex-items {
-    width: 90px;
-    height: 90px;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.05); /* Fondo sutil para los iconos */
-    border-radius: 8px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.light-mode .flex-items {
-    background-color: rgba(0, 0, 0, 0.05); /* Fondo sutil más oscuro para iconos en modo claro */
-}
-
-
-.flex-items:hover {
-    transform: translateY(-5px); /* Pequeño efecto de elevación */
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.flex-items img {
+.img-card {
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 180px;
+    object-fit: cover;
+    opacity: 0.95;
+    transition: opacity var(--transition-fast) ease, transform var(--transition-fast) ease;
 }
 
-/* --- Pie de Página (Footer) --- */
-.ft {
-    display: flex; /* Habilitar Flexbox */
-    flex-wrap: wrap; /* Permitir que los elementos salten de línea en pantallas pequeñas */
-    justify-content: center; /* Centrar horizontalmente los elementos */
-    align-items: center; /* Centrar verticalmente los elementos */
-    padding: 20px 0;
-    margin-top: 50px; /* Espacio desde el contenido superior */
-    border-top: 0.7px solid var(--accent-color-1);
-    /* Añadimos un pequeño gap para separar el texto del botón */
-    gap: 15px; /* Espacio entre los elementos flex */
+.card:hover .img-card {
+    transform: scale(1.03);
 }
 
-body.light-mode .ft {
-    border-top: 0.7px solid var(--accent-color-2); /* Borde en modo claro */
-}
-
-.ft p {
-    margin: 0; /* Elimina los márgenes del párrafo dentro de .ft para que 'gap' controle el espacio */
-    font-size: 16px;
-}
-
-.a-footer {
-    color: var(--primary-text); /* Asegura que el enlace mantenga el color del texto principal */
-}
-
-body.light-mode .a-footer {
-    color: var(--secondary-text); /* Color del enlace en modo claro */
-}
-
-/* --- Botón de cambio de tema --- */
-.btn-cc { /* Clase por defecto para el botón (modo oscuro) */
-    margin: 0; /* Elimina los márgenes del botón para que 'gap' controle el espacio */
-    border: none;
-    background: none; /* Fondo transparente inicialmente */
-    color: var(--primary-text); /* Usa la variable para el color del icono */
-    font-size: 28px;
-    cursor: pointer;
-    padding: 5px;
-    transition: color 0.3s ease;
-    /* Asegura que el texto y el icono estén en línea y alineados */
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Espacio entre el texto "Tema:" y el icono */
-}
-
-/* Estilo específico del botón en modo claro (cuando el body tiene light-mode) */
-body.light-mode .btn-cc { /* Esta es la clase que se mantiene */
-    color: var(--secondary-text); /* Texto oscuro sobre fondo claro */
-}
-
-/* --- Animación de Scroll --- */
+/* --- Animations: initial hidden state -> JS animates in --- */
 .animated {
     opacity: 0;
-    transform: translateY(20px); /* Empieza ligeramente por debajo */
-    transition: opacity 0.95s ease-out, transform 0.95s ease-out;
+    transform: translateY(30px);
+    transition: opacity 0.9s cubic-bezier(.22,.9,.38,1), transform 0.9s cubic-bezier(.22,.9,.38,1);
 }
 
-.fadeIn {
-    opacity: 1;
-    transform: translateY(0); /* Vuelve a la posición original */
+/* --- Light mode --- */
+.light-mode {
+    --bg-main: #f7fbff;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f0f6ff;
+    --text-primary: #06111a;
+    --text-secondary: #10202a;
+    --text-tertiary: #3b5170;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    :root {
+        --container-max-width: 920px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title { font-size: 2.5rem; }
+    .hd { padding-top: 4rem; }
+    .nav-main { justify-content: center; }
+    .flagship-details { padding: 2rem; }
+    .tech-grid { flex-direction: column; gap: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+    .nav-main { flex-wrap: wrap; gap: 1rem; }
+    .hd { padding: 3rem 0; text-align: center; }
+    .hero-content { text-align: center; }
+    .education-summary { border-left: none; padding-left: 0; border-top: 3px solid var(--accent-secondary); padding-top: 1rem; display: inline-block; text-align: left;}
+    .section-title { font-size: 1.75rem; }
+}
+
+/* --- Refactorización de Arquitectura y Skills --- */
+.system-modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.module-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-primary);
+}
+
+.module-card i {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+}
+
+.module-card h4 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.module-card p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.skill-category {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.skill-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent-primary);
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+.skill-category li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    padding-left: 1rem;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.skill-category li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 4px;
+    background: var(--accent-primary);
+    border-radius: 50%;
+}
+
+/* --- Ajuste de Responsividad --- */
+@media (max-width: 640px) {
+    .system-modules {
+        grid-template-columns: 1fr;
+    }
+    .hero-actions {
+        flex-direction: column;
+    }
 }

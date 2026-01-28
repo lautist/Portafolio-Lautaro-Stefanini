@@ -4,138 +4,219 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0638" data-default-color="#0a0638" />
-    <meta name="description" content="Soy Lautaro Stefanini, desarrollador front-end especializado en HTML, JavaScript y CSS. Bienvenido a mi portafolio digital.">
-    <meta name="author" content="Lautaro Stefanini">
-    <meta name="keywords" content="HTML, CSS, JavaScript, React, Desarrollador Front-end, Portafolio, Programación">
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#0a0a12" data-default-color="#0a0a12" />
+    <link rel="canonical" href="https://lautist.example.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Lautaro Stefanini | Full‑stack Developer & Ciberdefensa" />
+    <meta property="og:description" content="Especialista en arquitectura de sistemas, modelado PostgreSQL y ciberdefensa. Portafolio y case studies." />
+    <meta property="og:url" content="https://lautist.example.com/" />
+    <meta property="og:image" content="https://lautist.example.com/img/og-image.webp" />
+    <title>Lautaro Stefanini | Full-stack Developer & Ciberdefensa</title>
+    <meta name="description" content="Portfolio de Lautaro Stefanini. Especialista en arquitectura de sistemas, modelado PostgreSQL y ciberdefensa.">
+
+    <!-- Preconnect / Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet"> <link rel="shortcut icon" href="img/logo-redondeado.png" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/a5022cea6f.js" crossorigin="anonymous"></script>
-    <title>Lautaro Stefanini - Desarrollador Front-end</title>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script defer src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Lautaro Stefanini",
+      "jobTitle": "Full-stack Developer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Río Cuarto",
+        "addressRegion": "Córdoba",
+        "addressCountry": "AR"
+      },
+      "url": "https://github.com/lautist",
+      "sameAs": [
+        "https://github.com/lautist",
+        "https://www.linkedin.com/in/lautaro-stefanini-68a0aa215/"
+      ]
+    }
+    </script>
 </head>
 <body>
+    <a class="skip-link" href="#main">Saltar al contenido</a>
+
     <header>
-        <nav id="main-nav">
+        <nav id="main-nav" aria-label="Principal">
             <div class="nav-main">
-                <a href="https://github.com/lautist" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/lautaro-stefanini-68a0aa215/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-                <a href="mailto:stefaninilautaro@gmail.com"><i class="fa-solid fa-envelope"></i> Gmail</a>
+                <div class="nav-left">
+                    <a class="brand" href="/" aria-label="Inicio - Lautaro Stefanini">Lautaro S.</a>
+                </div>
+
+                <div class="nav-right">
+                    <a href="https://github.com/lautist" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i> GITHUB</a>
+                    <a href="https://www.linkedin.com/in/lautaro-stefanini-68a0aa215/" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin"></i> LINKEDIN</a>
+                    <a href="mailto:stefaninilautaro@gmail.com"><i data-lucide="mail"></i> GMAIL</a>
+
+                    <!-- Theme toggle -->
+                    <button id="cambiar-color" class="btn-icon" aria-pressed="false" aria-label="Cambiar tema" title="Cambiar tema">
+                        <i data-lucide="moon"></i>
+                    </button>
+
+                    <!-- Download CV / CTA -->
+                    <a class="btn-cta" href="/assets/CV-Lautaro-Stefanini.pdf" target="_blank" rel="noopener noreferrer">Descargar CV</a>
+                </div>
             </div>
         </nav>
+
         <div class="hd">
-           <div>
+           <div class="hero-content">
                 <h1 class="title">Lautaro Stefanini</h1>
+                <p class="tagline-hero" id="hero-role">DESARROLLADOR FULL-STACK JUNIOR & ESTUDIANTE DE CIBERDEFENSA</p>
                 <p class="description">
-                   Desarrollador Frontend en formación, con experiencia práctica en HTML, CSS, JavaScript y React. Apasionado por el diseño minimalista, la optimización y las nuevas tecnologías. Me destaco por ser detallista, adaptable y con fuerte compromiso en el trabajo en equipo. Busco crecer en desarrollo web y explorar el campo de la informática forense.
+                    Especialista en el diseño de soluciones escalables mediante el modelado avanzado de bases de datos relacionales en PostgreSQL y la implementación de políticas críticas de control de acceso. Mi enfoque técnico prioriza la integridad de los datos, la trazabilidad de los procesos y la construcción de APIs robustas.
                 </p>
-                <ul class="list-habilidades">
-                    <h3 class="list-habilidades-title">Educación</h3>
-                    <li>Programación – TECLAB (2024–2025, Título)</li>
-                    <li>Auxiliar en Programación – TECLAB (2024)</li>
-                    <li>Analista en Ciencias de la Computación – UNRC (2020, primer año)</li>
-                    <li>Diseño Web Responsivo – freeCodeCamp (2023)</li>
-                    <li>Cursos autodidactas en desarrollo web (2019-ACTUALIDAD)</li>
-                </ul>
+
+                <div class="hero-actions">
+                    <a class="btn-primary" href="#featured-work">Ver Proyecto Principal</a>
+                    <a class="btn-outline" href="#evolution-archive">Ver Proyectos</a>
+                </div>
+
+                <div class="education-grid" aria-hidden="false">
+                    <div class="edu-item">
+                        <h3 class="list-habilidades-title">Ciberdefensa</h3>
+                        <p>Licenciatura en Ciberdefensa – FADENA (En curso, 2026)</p>
+                    </div>
+                    <div class="edu-item">
+                        <h3 class="list-habilidades-title">Programación</h3>
+                        <p>Tecnicatura en Programación – TECLAB (2024–2025)</p>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main> <article>
-            <div class="work-name animated">
-                <h2>Proyectos</h2>
-                <div class="card">
-                    <a href="https://pasapalabra-futbol.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/pasapalabra.png" alt="Miniatura del proyecto web de pasapalabra"> 
-                        <div>
-                            <h3>Pasaplabra Futbol</h3> 
-                            <p class="cc-card">Se tiene que adivinar el jugador a partir de las pista, El sitio esta realizado con React y la base en json</em></p>
-                        </div>
-                    </a>
+    <main id="main">
+    <section id="featured-work" class="animated" aria-labelledby="featured-title">
+        <h2 id="featured-title" class="section-title">Proyecto Principal</h2>
+        <div class="flagship-container">
+            <div class="flagship-details">
+                <div class="flagship-header">
+                    <h3>Eco-sistema Marketplace Río Cuarto</h3>
+                    <span class="badge">SISTEMA CORE</span>
                 </div>
-                <div class="card">
-                    <a href="https://pomodoro-test.netlify.app/#" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/pomodoro.png" alt="Miniatura del proyecto de aplicación Pomodoro"> 
-                        <div>
-                            <h3>Pomodoro</h3> 
-                            <p class="cc-card">Gestiona tu tiempo con la técnica Pomodoro. Temporizador simple de 25 minutos para mejorar la productividad.<br><em>JavaScript, HTML y CSS</em></p> 
-                        </div>
-                    </a>
-                </div>
-
-                <div class="card">
-                    <a href="https://preguntayrespuesta-test-lautist.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/quiz.png" alt="Miniatura del proyecto de juego de preguntas"> 
-                        <div>
-                            <h3>Quiz</h3> 
-                            <p class="cc-card">Juegos de preguntas. Desafía tus conocimientos en varios temas.<br><em>JavaScript, HTML y CSS, JSON</em></p> 
-                        </div>
-                    </a>
-                </div>
-
-                <div class="card">
-                    <a href="https://estudiojuridicoirisnavarro.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/abogado.png" alt="Miniatura del proyecto de sitio web de abogado"> 
-                        <div>
-                            <h3>Abogado</h3> 
-                            <p class="cc-card">Ofrece servicios legales a clientes, con información detallada sobre el equipo y sus áreas de práctica.<br><em>HTML y CSS</em></p> 
-                        </div>
-                    </a>
+                <p class="tagline">Plataforma integral de comercio unificado y gestión operativa.</p>
+                
+                <div class="system-modules">
+                    <div class="module-card">
+                        <i data-lucide="shopping-bag"></i>
+                        <h4>Gestión Comercial</h4>
+                        <p>Motor de cupones, promociones dinámicas y orquestación de órdenes.</p>
+                    </div>
+                    <div class="module-card">
+                        <i data-lucide="database-zap"></i>
+                        <h4>Operativa Masiva</h4>
+                        <p>Procesamiento de datos mediante CSV y trazabilidad de historial técnico.</p>
+                    </div>
+                    <div class="module-card">
+                        <i data-lucide="shield-check"></i>
+                        <h4>Seguridad Avanzada</h4>
+                        <p>Políticas RLS en PostgreSQL, RBAC jerárquico y validación de identidad.</p>
+                    </div>
+                    <div class="module-card">
+                        <i data-lucide="bar-chart-3"></i>
+                        <h4>Analítica Visual</h4>
+                        <p>Transformación de datos en indicadores estratégicos con Chart.js.</p>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <a href="https://calculadora-lautist.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/calculadora.png" alt="Miniatura del proyecto de aplicación de calculadora"> 
-                        <div>
-                            <h3>Calculadora</h3> 
-                            <p class="cc-card">Una aplicación sencilla para realizar cálculos matemáticos y aritméticos básicos rápidamente.<br><em>HTML, CSS y JavaScript</em></p> 
-                        </div>
-                    </a>
+                <div class="tech-grid-expanded">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">PostgreSQL (RLS/Triggers)</span>
+                    <span class="tech-tag">JWT</span>
+                    <span class="tech-tag">Mercado Pago API</span>
                 </div>
 
-                <div class="card">
-                    <a href="https://clima-lautist.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/clima.png" alt="Miniatura del proyecto de aplicación de clima"> 
-                        <div>
-                            <h3>Clima</h3> 
-                            <p class="cc-card">Tu pronóstico personalizado: la app que te mantiene al día con el tiempo.<br><em>HTML, CSS y JavaScript. Tambien se trabaja con API</em></p> 
-                        </div>
-                    </a>
+                <div class="case-study-cta">
+                    <a class="btn-primary" href="https://marketplaceprojectrioiv.vercel.app/" target="_blank" rel="noopener noreferrer">Lanzar Aplicación</a>
                 </div>
-                <div class="card">
-                    <a href="https://ventaauto-test.netlify.app/" target="_blank" rel="noopener noreferrer">
-                        <img class="img-card" src="img/ventaauto.png" alt="Miniatura del proyecto web de automoción"> 
-                        <div>
-                            <h3>Automotor</h3> 
-                            <p class="cc-card">Venta de coches, camiones nuevos y usados. Amplia selección y financiación disponible.<br><em>JavaScript, HTML, CSS y Bootstrap Tambien se aplican filtros</em></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </article>
-
-        <div class="plusInfo animated">
-            <h3 class="inf-hb">Habilidades</h3> 
-            <div class="flex-container icon-logs">
-                <div class="flex-items"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/800px-HTML5_logo_and_wordmark.svg.png" alt="Logo HTML5"></div>
-                <div class="flex-items"><img src="https://skillforge.com/wp-content/uploads/2020/10/javascript-266x300.png" alt="Logo JavaScript"></div>
-                <div class="flex-items"><img src="https://www.adaweb.es/wp-content/uploads/2022/05/logotipo_css-min.png" alt="Logo CSS"></div>
-                <div class="flex-items"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Logo Bootstrap"></div> 
-                <div class="flex-items"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1150px-React-icon.svg.png" alt="Logo ReactJS"></div>
-                <div class="flex-items "><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/2048px-Git_icon.svg.png" alt="Logo Git"></div>
-                <div class="flex-items"><img src="https://www.svgrepo.com/show/331760/sql-database-generic.svg" alt="Logo SQL"></div>
-                <div class="flex-items"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/711px-PHP-logo.svg.png?20180502235434" alt="Logo PHP"></div> 
             </div>
         </div>
-    </main>
+    </section>
 
-    <footer>
+    <section id="skills-matrix" class="animated">
+        <h2 class="section-title">Matriz de Habilidades</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <div class="skill-head"><i data-lucide="server"></i> <h3>Backend & DB</h3></div>
+                <ul>
+                    <li>Node.js & Express</li>
+                    <li>PostgreSQL (Avanzado)</li>
+                    <li>Modelado Relacional</li>
+                    <li>Procedimientos & Triggers</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="skill-head"><i data-lucide="layout"></i> <h3>Frontend</h3></div>
+                <ul>
+                    <li>React & Next.js</li>
+                    <li>Tailwind CSS</li>
+                    <li>Visualización Chart.js</li>
+                    <li>Responsive Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <div class="skill-head"><i data-lucide="lock"></i> <h3>Seguridad</h3></div>
+                <ul>
+                    <li>Ciberdefensa (FADENA)</li>
+                    <li>Políticas RLS & RBAC</li>
+                    <li>Seguridad de la Info</li>
+                    <li>Git & CI/CD</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="animated">
+        <h2 class="section-title">Trayectoria Profesional</h2>
+        <div class="exp-item">
+            <h3>Infraestructura & Optimización</h3>
+            <p class="exp-meta">Empresa Familiar (Río Cuarto) | 2019 - 2020 </p>
+            <p>Gestión de infraestructura crítica y mantenimiento preventivo para asegurar 100% de disponibilidad operativa.</p>
+        </div>
+    </section>
+
+    <article id="evolution-archive" class="animated">
+        <h2 class="section-title">Evolución de Proyectos</h2>
+        <div class="work-name">
+            <div class="card">
+                <a href="https://pasapalabra-futbol.netlify.app/" target="_blank" rel="noopener noreferrer">
+                    <img class="img-card" src="img/pasapalabra.webp" alt="Pasapalabra Futbol"> 
+                    <div><h3>Pasapalabra Futbol</h3><p>React & JSON Logic</p></div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://clima-lautist.netlify.app/" target="_blank" rel="noopener noreferrer">
+                    <img class="img-card" src="img/clima.webp" alt="App Clima"> 
+                    <div><h3>Weather App</h3><p>API & Vanilla JS</p></div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="https://pomodoro-test.netlify.app/" target="_blank" rel="noopener noreferrer">
+                    <img class="img-card" src="img/pomodoro.webp" alt="Pomodoro"> 
+                    <div><h3>Pomodoro</h3><p>Logic & Timing</p></div>
+                </a>
+            </div>
+        </div>
+    </article>
+</main>
+
+    <footer role="contentinfo">
         <div class="ft">
-            <p>©2025 <a href="https://github.com/lautist" class="a-footer" target="_blank" rel="noopener noreferrer">Lautist</a></p>
-            <button id="cambiar-color" class="btn-cc" aria-label="Alternar modo oscuro/claro">
-                <span>Tema:</span> <i class="fa-solid fa-toggle-on"></i>
-            </button>
+            <p>©2026 Lautaro Stefanini | Río Cuarto, Córdoba, Argentina</p>
         </div>
     </footer>
 
